@@ -8,11 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Next Trip', href: '#next-trip' },
-  { name: 'About', href: '#about' },
-  { name: 'Blog', href: '#blog' },
-  { name: 'Gallery', href: '#gallery' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Trips', href: '/trips' },
+  { name: 'About', href: '/about' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Contact', href: '/contact' },
 ]
 
 export default function Header() {
@@ -95,7 +94,7 @@ export default function Header() {
                 <span className="text-sm font-medium">+357 99 123 456</span>
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="inline-flex items-center space-x-2 rounded-full bg-gradient-to-r from-orange-500 to-orange-400 px-6 py-2.5 text-sm font-medium text-white shadow-lg hover:shadow-xl hover:shadow-orange-500/25 transform hover:scale-105 transition-all duration-200"
               >
                 <MapPin className="h-4 w-4" />
@@ -140,7 +139,7 @@ export default function Header() {
                       <span className="font-medium">+357 99 123 456</span>
                     </Link>
                     <Link
-                      href="#contact"
+                      href="/contact"
                       className="flex items-center justify-center space-x-2 rounded-xl bg-gradient-to-r from-orange-500 to-orange-400 px-4 py-4 text-base font-medium text-white shadow-lg hover:shadow-xl hover:shadow-orange-500/25 transition-all duration-200 touch-manipulation"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -156,4 +155,4 @@ export default function Header() {
       </header>
     </>
   )
-} 
+}
