@@ -4,7 +4,6 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Calendar, User, Clock, Tag, ArrowLeft, Share2, Heart, BookOpen } from 'lucide-react'
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
 
 interface BlogPostData {
   id: number

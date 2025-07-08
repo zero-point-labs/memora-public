@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, Calendar, Users, Star, Heart, Camera, Quote } from 'lucide-react'
+import Link from 'next/link'
 
 const pastTrips = [
   {
@@ -176,7 +177,7 @@ export default function PastTrips() {
                 {/* Testimonial */}
                 <div className="mb-4">
                   <Quote className="h-5 w-5 text-primary mb-2" />
-                  <p className="text-gray-700 text-sm italic mb-2">"{trip.testimonial}"</p>
+                  <p className="text-gray-700 text-sm italic mb-2">&ldquo;{trip.testimonial}&rdquo;</p>
                   <p className="text-primary font-medium text-sm">- {trip.author}</p>
                 </div>
 
@@ -208,12 +209,12 @@ export default function PastTrips() {
           <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
             Join our next adventure and experience the magic of Cyprus for yourself.
           </p>
-          <a
+          <Link
             href="/trips"
             className="inline-block bg-gradient-to-r from-primary to-accent text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-200"
           >
             Explore Upcoming Trips
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

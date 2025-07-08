@@ -224,8 +224,9 @@ const trips = [
   }
 ]
 
-export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
-  const trip = trips.find(t => t.id === parseInt(params.id))
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params
+  const trip = trips.find(t => t.id === parseInt(id))
   
   if (!trip) {
     return {
@@ -239,8 +240,9 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
   }
 }
 
-export default function TripDetailsPage({ params }: { params: { id: string } }) {
-  const trip = trips.find(t => t.id === parseInt(params.id))
+export default async function TripDetailsPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
+  const trip = trips.find(t => t.id === parseInt(id))
 
   if (!trip) {
     notFound()

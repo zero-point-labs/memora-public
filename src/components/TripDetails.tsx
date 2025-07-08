@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Calendar, Users, Star, Clock, Check, X, ChevronLeft, ChevronRight, Camera, ArrowLeft } from 'lucide-react'
+import { MapPin, Calendar, Users, Star, Check, X, ChevronLeft, ChevronRight, Camera, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 
 interface Trip {
@@ -44,7 +44,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
   const tabs = [
     { id: 'overview', label: 'Overview' },
     { id: 'itinerary', label: 'Itinerary' },
-    { id: 'included', label: 'What\'s Included' }
+    { id: 'included', label: 'What&apos;s Included' }
   ]
 
   return (
@@ -284,7 +284,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                 className="grid md:grid-cols-2 gap-8"
               >
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">What's Included</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">What&apos;s Included</h3>
                   <ul className="space-y-2">
                     {trip.included.map((item, index) => (
                       <li key={index} className="flex items-center space-x-3">
@@ -295,7 +295,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">What's Not Included</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">What&apos;s Not Included</h3>
                   <ul className="space-y-2">
                     {trip.notIncluded.map((item, index) => (
                       <li key={index} className="flex items-center space-x-3">
@@ -322,7 +322,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
               Ready for This Adventure?
             </h2>
             <p className="text-white text-lg mb-8 max-w-2xl mx-auto">
-              Don't miss out on this incredible experience. Book your spot now and create memories that will last a lifetime.
+              Don&apos;t miss out on this incredible experience. Book your spot now and create memories that will last a lifetime.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

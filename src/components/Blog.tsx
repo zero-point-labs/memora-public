@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, Clock, ArrowRight, MapPin, User, Eye } from 'lucide-react'
+import { Calendar, Clock, ArrowRight, User, Eye } from 'lucide-react'
 import Link from 'next/link'
 
 const blogPosts = [
@@ -256,4 +256,4 @@ export default function Blog() {
       </div>
     </section>
   )
-} 
+}
