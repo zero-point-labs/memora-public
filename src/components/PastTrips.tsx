@@ -90,9 +90,9 @@ export default function PastTrips() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-gray-100 rounded-full px-4 py-2 mb-4">
-            <Heart className="h-5 w-5 text-gray-600" />
-            <span className="text-gray-600 font-medium">Past Adventures</span>
+          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+            <Heart className="h-5 w-5 text-primary" />
+            <span className="text-primary font-medium">Past Adventures</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Amazing Memories Created
@@ -110,19 +110,19 @@ export default function PastTrips() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-orange-600 mb-2">150+</div>
+            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">150+</div>
             <div className="text-gray-600">Happy Travelers</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-orange-600 mb-2">25+</div>
+            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">25+</div>
             <div className="text-gray-600">Trips Completed</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-orange-600 mb-2">4.8</div>
+            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">4.8</div>
             <div className="text-gray-600">Average Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-orange-600 mb-2">100%</div>
+            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">100%</div>
             <div className="text-gray-600">Satisfaction Rate</div>
           </div>
         </motion.div>
@@ -135,10 +135,10 @@ export default function PastTrips() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-primary/10 hover:shadow-xl transition-all duration-300"
             >
               {/* Trip Image */}
-              <div className="relative h-48 bg-gradient-to-br from-gray-400 to-gray-500">
+              <div className="relative h-48 bg-gradient-to-br from-primary to-accent">
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
                   <div className="flex items-center space-x-1">
@@ -175,9 +175,9 @@ export default function PastTrips() {
 
                 {/* Testimonial */}
                 <div className="mb-4">
-                  <Quote className="h-5 w-5 text-orange-400 mb-2" />
+                  <Quote className="h-5 w-5 text-primary mb-2" />
                   <p className="text-gray-700 text-sm italic mb-2">"{trip.testimonial}"</p>
-                  <p className="text-orange-600 font-medium text-sm">- {trip.author}</p>
+                  <p className="text-primary font-medium text-sm">- {trip.author}</p>
                 </div>
 
                 {/* Highlights */}
@@ -186,7 +186,7 @@ export default function PastTrips() {
                   <div className="grid grid-cols-2 gap-1">
                     {trip.highlights.map((highlight, hIndex) => (
                       <div key={hIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-orange-400 rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
                         <span className="text-xs text-gray-600">{highlight}</span>
                       </div>
                     ))}
@@ -201,29 +201,19 @@ export default function PastTrips() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-16 bg-gradient-to-r from-orange-50 to-orange-100 rounded-2xl p-8 lg:p-12"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center mt-16"
         >
-          <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-            Ready to Create Your Own Memories?
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Join hundreds of students who have already experienced the magic of Cyprus with Memora. Your adventure is waiting!
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Create Your Own Memories?</h3>
+          <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
+            Join our next adventure and experience the magic of Cyprus for yourself.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/trips"
-              className="bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium py-3 px-8 rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-200"
-            >
-              View Upcoming Trips
-            </a>
-            <a
-              href="/contact"
-              className="bg-white text-orange-600 font-medium py-3 px-8 rounded-xl border-2 border-orange-200 hover:bg-orange-50 transition-all duration-200"
-            >
-              Contact Us
-            </a>
-          </div>
+          <a
+            href="/trips"
+            className="inline-block bg-gradient-to-r from-primary to-accent text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-200"
+          >
+            Explore Upcoming Trips
+          </a>
         </motion.div>
       </div>
     </section>

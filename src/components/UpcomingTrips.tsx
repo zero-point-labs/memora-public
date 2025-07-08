@@ -82,7 +82,7 @@ const upcomingTrips = [
 
 export default function UpcomingTrips() {
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-orange-50 to-white">
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-primary/5 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -91,9 +91,9 @@ export default function UpcomingTrips() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-orange-100 rounded-full px-4 py-2 mb-4">
-            <Calendar className="h-5 w-5 text-orange-600" />
-            <span className="text-orange-600 font-medium">Upcoming Adventures</span>
+          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+            <Calendar className="h-5 w-5 text-primary" />
+            <span className="text-primary font-medium">Upcoming Adventures</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Your Next Cyprus Adventure Awaits
@@ -110,9 +110,9 @@ export default function UpcomingTrips() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex items-center justify-center mb-12"
         >
-          <div className="bg-white rounded-2xl p-4 shadow-lg border border-orange-100">
+          <div className="bg-white rounded-2xl p-4 shadow-lg border border-primary/10">
             <div className="flex items-center space-x-4">
-              <Filter className="h-5 w-5 text-orange-600" />
+              <Filter className="h-5 w-5 text-primary" />
               <span className="text-gray-700 font-medium">Filter by:</span>
               <select className="bg-transparent border-none text-gray-700 focus:outline-none">
                 <option>All Locations</option>
@@ -138,13 +138,13 @@ export default function UpcomingTrips() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-orange-100 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-primary/10 hover:shadow-xl transition-all duration-300"
             >
               {/* Trip Image */}
-              <div className="relative h-48 bg-gradient-to-br from-orange-400 to-orange-500">
+              <div className="relative h-48 bg-gradient-to-br from-primary to-accent">
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                  <span className="text-sm font-medium text-orange-600">{trip.spotsLeft} spots left</span>
+                  <span className="text-sm font-medium text-primary">{trip.spotsLeft} spots left</span>
                 </div>
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-bold mb-1">{trip.title}</h3>
@@ -164,7 +164,7 @@ export default function UpcomingTrips() {
                     <span className="text-sm">{trip.date}</span>
                   </div>
                   <div className="text-right">
-                    <div className="text-2xl font-bold text-orange-600">€{trip.price}</div>
+                    <div className="text-2xl font-bold text-primary">€{trip.price}</div>
                     <div className="text-xs text-gray-500">per person</div>
                   </div>
                 </div>
@@ -182,8 +182,8 @@ export default function UpcomingTrips() {
                 {/* Activities Preview */}
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {trip.activities.slice(0, 4).map((activity, actIndex) => (
-                    <div key={actIndex} className="bg-orange-50 rounded-lg p-3 text-center">
-                      <activity.icon className="h-5 w-5 text-orange-600 mx-auto mb-1" />
+                    <div key={actIndex} className="bg-primary/5 rounded-lg p-3 text-center">
+                      <activity.icon className="h-5 w-5 text-primary mx-auto mb-1" />
                       <span className="text-xs font-medium text-gray-700">{activity.name}</span>
                     </div>
                   ))}
@@ -193,16 +193,15 @@ export default function UpcomingTrips() {
                 <div className="space-y-3">
                   <Link
                     href={`/trips/${trip.id}`}
-                    className="w-full bg-orange-100 text-orange-600 font-medium py-3 px-6 rounded-xl hover:bg-orange-200 transition-all duration-200 flex items-center justify-center"
+                    className="w-full bg-primary/10 text-primary font-medium py-3 px-6 rounded-xl hover:bg-primary/20 transition-all duration-200 flex items-center justify-center"
                   >
                     View Details
                   </Link>
                   <Link
-                    href="/contact"
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
+                    href="#contact"
+                    className="w-full bg-gradient-to-r from-primary to-accent text-white font-medium py-3 px-6 rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-200 flex items-center justify-center"
                   >
-                    <Calendar className="h-5 w-5" />
-                    <span>Book Now</span>
+                    Reserve Spot
                   </Link>
                 </div>
               </div>
@@ -217,7 +216,7 @@ export default function UpcomingTrips() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <button className="bg-white text-orange-600 font-medium py-3 px-8 rounded-xl border-2 border-orange-200 hover:bg-orange-50 transition-all duration-200">
+          <button className="bg-white text-primary font-medium py-3 px-8 rounded-xl border-2 border-primary/20 hover:bg-primary/5 transition-all duration-200">
             Load More Trips
           </button>
         </motion.div>

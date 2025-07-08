@@ -38,7 +38,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200" aria-labelledby="footer-heading">
+    <footer className="bg-white border-t border-coral/10" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -69,7 +69,7 @@ export default function Footer() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-gray-600 hover:text-orange-600 transition-colors duration-200 p-2 -m-2 touch-manipulation"
+                    className="text-gray-600 hover:text-coral transition-colors duration-200 p-2 -m-2 touch-manipulation"
                   >
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
@@ -90,7 +90,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link 
                         href={item.href} 
-                        className="text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 block py-1 touch-manipulation"
+                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
                       >
                         {item.name}
                       </Link>
@@ -107,7 +107,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link 
                         href={item.href} 
-                        className="text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 block py-1 touch-manipulation"
+                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
                       >
                         {item.name}
                       </Link>
@@ -124,7 +124,7 @@ export default function Footer() {
                     <li key={item.name}>
                       <Link 
                         href={item.href} 
-                        className="text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 block py-1 touch-manipulation"
+                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
                       >
                         {item.name}
                       </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
                   <li>
                     <Link 
                       href="tel:+35799123456"
-                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-orange-600 transition-colors py-1 touch-manipulation"
+                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-coral transition-colors py-1 touch-manipulation"
                     >
                       <Phone className="h-4 w-4 flex-shrink-0 mt-0.5" />
                       <span>+357 99 123 456</span>
@@ -149,7 +149,7 @@ export default function Footer() {
                   <li>
                     <Link 
                       href="mailto:hello@memora.cy"
-                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-orange-600 transition-colors py-1 touch-manipulation"
+                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-coral transition-colors py-1 touch-manipulation"
                     >
                       <Mail className="h-4 w-4 flex-shrink-0 mt-0.5" />
                       <span className="break-all">hello@memora.cy</span>
@@ -169,7 +169,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom section */}
-        <div className="mt-8 sm:mt-12 border-t border-gray-200 pt-6 sm:pt-8">
+        <div className="mt-8 sm:mt-12 border-t border-coral/10 pt-6 sm:pt-8">
           <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
             <p className="text-sm text-gray-600 text-center sm:text-left">
               &copy; {new Date().getFullYear()} Memora. All rights reserved. Making memories across Cyprus.
@@ -181,7 +181,7 @@ export default function Footer() {
                 <React.Fragment key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-xs sm:text-sm text-gray-600 hover:text-orange-600 transition-colors duration-200 touch-manipulation"
+                    className="text-xs sm:text-sm text-gray-600 hover:text-coral transition-colors duration-200 touch-manipulation"
                   >
                     {item.name}
                   </Link>
@@ -196,7 +196,7 @@ export default function Footer() {
           {/* Made with love */}
           <div className="mt-4 flex items-center justify-center sm:justify-start space-x-1 text-gray-600">
             <span className="text-xs sm:text-sm">Made with</span>
-            <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-orange-500 fill-current" />
+            <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-coral fill-current" />
             <span className="text-xs sm:text-sm">by the Memora Team</span>
           </div>
         </div>

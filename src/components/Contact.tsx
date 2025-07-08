@@ -59,7 +59,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="py-16 lg:py-24 bg-white">
+    <section id="contact" className="py-16 lg:py-24 bg-coral/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -68,9 +68,9 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-orange-100 rounded-full px-4 py-2 mb-4">
-            <MessageCircle className="h-5 w-5 text-orange-600" />
-            <span className="text-orange-600 font-medium">Get In Touch</span>
+          <div className="inline-flex items-center space-x-2 bg-coral/20 rounded-full px-4 py-2 mb-4">
+            <MessageCircle className="h-5 w-5 text-coral" />
+            <span className="text-coral font-medium">Get In Touch</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Ready for Your Next Adventure?
@@ -87,7 +87,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-6 lg:p-8 border border-orange-100">
+            <div className="bg-white rounded-2xl p-6 lg:p-8 border border-coral/10">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -102,7 +102,7 @@ export default function Contact() {
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -117,7 +117,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral focus:border-transparent transition-all duration-200"
                       required
                     />
                   </div>
@@ -134,7 +134,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral focus:border-transparent transition-all duration-200"
                     />
                   </div>
                   
@@ -147,7 +147,7 @@ export default function Contact() {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral focus:border-transparent transition-all duration-200"
                     >
                       <option value="">Select a topic</option>
                       <option value="booking">Trip Booking</option>
@@ -170,7 +170,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={5}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-200 resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral focus:border-transparent transition-all duration-200 resize-none"
                     placeholder="Tell us about your ideal trip or any questions you have..."
                     required
                   />
@@ -180,7 +180,7 @@ export default function Contact() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-orange-500 to-orange-400 text-white font-medium py-4 px-6 rounded-xl hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-200 flex items-center justify-center space-x-2"
+                  className="w-full bg-coral text-white font-medium py-4 px-6 rounded-xl hover:shadow-lg hover:shadow-coral/25 transition-all duration-200 flex items-center justify-center space-x-2"
                 >
                   <Send className="h-5 w-5" />
                   <span>Send Message</span>
@@ -198,36 +198,49 @@ export default function Contact() {
           >
             {/* Contact Info Cards */}
             <div className="space-y-4">
-              {contactInfo.map((info, index) => (
+              {contactInfo.map((item, index) => (
                 <motion.div
-                  key={info.title}
+                  key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl hover:border-orange-200 transition-all group"
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center group-hover:bg-orange-200 transition-colors">
-                      <info.icon className="h-6 w-6 text-orange-600" />
+                  <a href={item.href} className="block group">
+                    <div className="p-5 rounded-2xl border border-gray-100 group-hover:bg-coral/5 group-hover:border-coral/10 group-hover:shadow-lg group-hover:shadow-coral/5 transition-all duration-300">
+                      <div className="flex items-start space-x-4">
+                        <div className="flex-shrink-0">
+                          <div className="h-12 w-12 rounded-full bg-coral/10 flex items-center justify-center">
+                            <item.icon className="h-6 w-6 text-coral" />
+                          </div>
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h4>
+                          <p className="text-gray-700">{item.details}</p>
+                          <p className="text-sm text-gray-500">{item.subtext}</p>
+                        </div>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h4>
-                      {info.href !== "#" ? (
-                        <a
-                          href={info.href}
-                          className="text-orange-600 hover:text-orange-700 font-medium transition-colors"
-                        >
-                          {info.details}
-                        </a>
-                      ) : (
-                        <p className="text-gray-900 font-medium">{info.details}</p>
-                      )}
-                      <p className="text-sm text-gray-600 mt-1">{info.subtext}</p>
-                    </div>
-                  </div>
+                  </a>
                 </motion.div>
               ))}
             </div>
+
+            {/* Social Media Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="pt-6"
+            >
+              <h4 className="text-lg font-bold text-gray-900 mb-4">Follow Our Adventures</h4>
+              <div className="flex space-x-4">
+                {['Instagram', 'Facebook', 'TikTok'].map(social => (
+                  <a key={social} href="#" className="text-gray-500 hover:text-coral transition-colors duration-200">
+                    {social}
+                  </a>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
