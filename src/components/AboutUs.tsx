@@ -64,14 +64,14 @@ const stats = [
 
 export default function AboutUs() {
   const ref = useRef<HTMLElement>(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   })
   
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50])
+  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0.3, 1, 1, 0.3])
 
   return (
     <section ref={ref} id="about" className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-light-orange/10 via-white to-light-purple/10 overflow-hidden">
@@ -87,29 +87,12 @@ export default function AboutUs() {
           className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-r from-primary-orange/10 to-primary-pink/10 rounded-full blur-3xl"
         />
         
-        {/* Floating elements */}
-        <div className="absolute inset-0">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 360],
-              }}
-              transition={{
-                duration: 15 + i * 2,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            >
-              <MapPin className="h-6 w-6 text-primary-cyan/20" />
-            </motion.div>
-          ))}
+        {/* Simplified floating elements for better performance */}
+        <div className="absolute inset-0 opacity-50">
+          <div className="absolute top-20 left-10 w-2 h-2 bg-primary-cyan/30 rounded-full"></div>
+          <div className="absolute top-40 right-20 w-3 h-3 bg-primary-blue/20 rounded-full"></div>
+          <div className="absolute bottom-32 left-20 w-2 h-2 bg-primary-purple/30 rounded-full"></div>
+          <div className="absolute bottom-20 right-10 w-3 h-3 bg-primary-pink/20 rounded-full"></div>
         </div>
       </motion.div>
 
@@ -300,19 +283,19 @@ export default function AboutUs() {
             transition={{ duration: 0.6, delay: 1.8 }}
             className="text-center mt-12"
           >
-            <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-primary-blue/5 to-primary-purple/5 rounded-2xl p-6 border border-primary-blue/10">
-              <div className="flex -space-x-2">
+            <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 bg-gradient-to-r from-primary-blue/5 to-primary-purple/5 rounded-2xl p-6 border border-primary-blue/10">
+              <div className="flex -space-x-2 justify-center sm:justify-start flex-shrink-0">
                 {['primary-blue', 'primary-purple', 'primary-pink', 'primary-orange'].map((color, i) => (
                   <div key={i} className={`w-10 h-10 bg-gradient-to-r from-${color} to-primary-teal rounded-full border-2 border-white flex items-center justify-center`}>
                     <Heart className="h-5 w-5 text-white" />
                   </div>
                 ))}
               </div>
-              <div className="text-left">
+              <div className="text-center sm:text-left flex-1">
                 <h4 className="font-semibold text-gray-900">Interested in partnering with us?</h4>
                 <p className="text-sm text-gray-600">Join our network of trusted partners</p>
               </div>
-              <button className="bg-gradient-to-r from-primary-blue to-primary-purple text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200">
+              <button className="bg-gradient-to-r from-primary-blue to-primary-purple text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200 flex-shrink-0 w-full sm:w-auto">
                 Partner With Us
               </button>
             </div>

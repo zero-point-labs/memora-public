@@ -271,18 +271,18 @@ export default function Reviews() {
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
                       <div className="flex items-center space-x-4 text-sm text-gray-500">
                         <div className="flex items-center space-x-1">
-                          <Calendar className="h-4 w-4 text-primary-red" />
+                          <Calendar className="h-4 w-4 text-primary-red flex-shrink-0" />
                           <span>{filteredReviews[currentReview].date}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <ThumbsUp className="h-4 w-4 text-primary-red" />
+                          <ThumbsUp className="h-4 w-4 text-primary-red flex-shrink-0" />
                           <span>{filteredReviews[currentReview].likes}</span>
                         </div>
                       </div>
-                      <span className="text-sm font-medium text-gray-600">
+                      <span className="text-sm font-medium text-gray-600 sm:text-right">
                         {filteredReviews[currentReview].trip}
                       </span>
                     </div>

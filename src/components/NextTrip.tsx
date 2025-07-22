@@ -74,22 +74,22 @@ export default function NextTrip() {
           >
             {/* Trip info card */}
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-primary-blue/10 flex-1 flex flex-col">
-              <div className="flex items-center justify-between mb-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">March 15-17, 2024</h3>
-                  <div className="flex items-center space-x-4 text-gray-600">
-                    <div className="flex items-center space-x-1">
-                      <MapPin className="h-4 w-4 text-primary-blue" />
-                      <span>Paphos, Cyprus</span>
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-6 space-y-3 lg:space-y-0">
+                <div className="flex-1">
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">March 15-17, 2024</h3>
+                                      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-1 sm:space-y-0 text-gray-600 text-sm">
+                      <div className="flex items-center space-x-1">
+                        <MapPin className="h-4 w-4 text-primary-blue flex-shrink-0" />
+                        <span className="truncate">Paphos, Cyprus</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <Users className="h-4 w-4 text-primary-purple flex-shrink-0" />
+                        <span className="truncate">25 spots left</span>
+                      </div>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <Users className="h-4 w-4 text-primary-purple" />
-                      <span>25 spots left</span>
-                    </div>
-                  </div>
                 </div>
-                <div className="text-right">
-                  <div className="text-3xl font-bold text-transparent bg-gradient-to-r from-primary-blue to-primary-cyan bg-clip-text">€150</div>
+                <div className="text-center lg:text-right">
+                  <div className="text-2xl sm:text-3xl font-bold text-transparent bg-gradient-to-r from-primary-blue to-primary-cyan bg-clip-text">€150</div>
                   <div className="text-sm text-gray-500">per person</div>
                 </div>
               </div>

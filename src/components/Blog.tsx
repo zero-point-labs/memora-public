@@ -282,33 +282,7 @@ export default function Blog() {
           </Link>
         </motion.div>
 
-        {/* Blog Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {[
-            { number: "50+", label: "Travel Guides", gradient: "from-primary-orange to-primary-red", icon: BookOpen },
-            { number: "25K+", label: "Monthly Readers", gradient: "from-primary-blue to-primary-purple", icon: User },
-            { number: "100+", label: "Hidden Spots", gradient: "from-primary-green to-primary-teal", icon: Eye },
-            { number: "4.9★", label: "Reader Rating", gradient: "from-primary-pink to-primary-purple", icon: TrendingUp }
-          ].map((stat) => (
-            <div
-              key={stat.label}
-              className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
-            >
-              <div className={`w-12 h-12 bg-gradient-to-r ${stat.gradient} rounded-full flex items-center justify-center mx-auto mb-3`}>
-                <stat.icon className="h-6 w-6 text-white" />
-              </div>
-              <div className={`text-2xl font-bold text-transparent bg-gradient-to-r ${stat.gradient} bg-clip-text mb-1`}>
-                {stat.number}
-              </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   )
