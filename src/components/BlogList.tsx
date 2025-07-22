@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, User, Tag, Search, ArrowRight, Clock } from 'lucide-react'
+import { Calendar, User, Tag, Search, ArrowRight, Clock, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
 const blogPosts = [
@@ -16,7 +16,8 @@ const blogPosts = [
     readTime: "5 min read",
     category: "Travel Tips",
     image: "/blog-hidden-gems.jpg",
-    featured: true
+    featured: true,
+    gradient: "from-primary-orange to-primary-red"
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ const blogPosts = [
     readTime: "7 min read",
     category: "Budget Travel",
     image: "/blog-budget-tips.jpg",
-    featured: false
+    featured: false,
+    gradient: "from-primary-blue to-primary-purple"
   },
   {
     id: 3,
@@ -40,7 +42,8 @@ const blogPosts = [
     readTime: "6 min read",
     category: "Food & Culture",
     image: "/blog-food-guide.jpg",
-    featured: true
+    featured: true,
+    gradient: "from-primary-pink to-primary-purple"
   },
   {
     id: 4,
@@ -51,7 +54,8 @@ const blogPosts = [
     readTime: "4 min read",
     category: "Trip Reports",
     image: "/blog-paphos-report.jpg",
-    featured: false
+    featured: false,
+    gradient: "from-primary-cyan to-primary-blue"
   },
   {
     id: 5,
@@ -62,7 +66,8 @@ const blogPosts = [
     readTime: "5 min read",
     category: "Nightlife",
     image: "/blog-nightlife.jpg",
-    featured: false
+    featured: false,
+    gradient: "from-primary-purple to-primary-pink"
   },
   {
     id: 6,
@@ -73,11 +78,19 @@ const blogPosts = [
     readTime: "6 min read",
     category: "Travel Tips",
     image: "/blog-making-friends.jpg",
-    featured: false
+    featured: false,
+    gradient: "from-primary-green to-primary-teal"
   }
 ]
 
-const categories = ["All", "Travel Tips", "Trip Reports", "Food & Culture", "Budget Travel", "Nightlife"]
+const categories = [
+  { name: "All", gradient: "from-primary-orange to-primary-red" },
+  { name: "Travel Tips", gradient: "from-primary-blue to-primary-purple" },
+  { name: "Trip Reports", gradient: "from-primary-cyan to-primary-blue" },
+  { name: "Food & Culture", gradient: "from-primary-pink to-primary-purple" },
+  { name: "Budget Travel", gradient: "from-primary-green to-primary-teal" },
+  { name: "Nightlife", gradient: "from-primary-purple to-primary-pink" }
+]
 
 export default function BlogList() {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -94,7 +107,7 @@ export default function BlogList() {
   const regularPosts = filteredPosts.filter(post => !post.featured)
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-br from-orange-50 to-white">
+    <section className="py-16 lg:py-24 bg-gradient-to-br from-light-orange/5 via-white to-light-red/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -103,12 +116,15 @@ export default function BlogList() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-orange-100 rounded-full px-4 py-2 mb-4">
-            <Tag className="h-5 w-5 text-orange-600" />
-            <span className="text-orange-600 font-medium">Travel Blog</span>
+          <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-primary-orange/10 to-primary-red/10 rounded-full px-4 py-2 mb-4 border border-primary-orange/20">
+            <BookOpen className="h-5 w-5 text-primary-orange" />
+            <span className="text-primary-orange font-medium">Travel Blog</span>
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Cyprus Travel Stories & Tips
+            Cyprus Travel
+            <span className="block text-transparent bg-gradient-to-r from-primary-orange via-primary-red to-primary-pink bg-clip-text">
+              Stories & Tips
+            </span>
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Get inspired by travel stories, discover hidden gems, and learn insider tips for your next Cyprus adventure.
@@ -130,23 +146,23 @@ export default function BlogList() {
               placeholder="Search articles..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-white border border-orange-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-3 bg-white border border-primary-orange/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-orange focus:border-transparent shadow-sm hover:shadow-md transition-all duration-200"
             />
           </div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
+                key={category.name}
+                onClick={() => setSelectedCategory(category.name)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  selectedCategory === category
-                    ? 'bg-orange-500 text-white shadow-lg'
-                    : 'bg-white text-gray-600 hover:bg-orange-50 hover:text-orange-600 border border-orange-200'
+                  selectedCategory === category.name
+                    ? `bg-gradient-to-r ${category.gradient} text-white shadow-lg scale-105`
+                    : 'bg-white text-gray-600 hover:shadow-md border border-gray-200 hover:border-primary-orange/30'
                 }`}
               >
-                {category}
+                {category.name}
               </button>
             ))}
           </div>
@@ -160,7 +176,12 @@ export default function BlogList() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-16"
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Featured Articles</h2>
+            <div className="flex items-center space-x-2 mb-8">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary-orange to-primary-red rounded-full flex items-center justify-center">
+                <Tag className="h-4 w-4 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Featured Articles</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-8">
               {featuredPosts.map((post, index) => (
                 <motion.article
@@ -168,19 +189,19 @@ export default function BlogList() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-orange-100 hover:shadow-xl transition-all duration-300"
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
                 >
                   {/* Featured Image */}
-                  <div className="relative h-64 bg-gradient-to-br from-orange-400 to-orange-500">
+                  <div className={`relative h-64 bg-gradient-to-br ${post.gradient}`}>
                     <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="absolute top-4 left-4 bg-orange-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 bg-gradient-to-r from-primary-orange to-primary-red text-white px-3 py-1 rounded-full text-sm font-medium shadow-lg">
                       Featured
                     </div>
                     <div className="absolute bottom-4 left-4 right-4">
-                      <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm mb-2">
+                      <span className="inline-block bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm mb-2 border border-white/30">
                         {post.category}
                       </span>
-                      <h3 className="text-xl font-bold text-white line-clamp-2">
+                      <h3 className="text-xl font-bold text-white line-clamp-2 group-hover:text-orange-100 transition-colors">
                         {post.title}
                       </h3>
                     </div>
@@ -194,16 +215,16 @@ export default function BlogList() {
                     <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
                       <div className="flex items-center space-x-4">
                         <div className="flex items-center space-x-1">
-                          <User className="h-4 w-4" />
+                          <User className="h-4 w-4 text-primary-orange" />
                           <span>{post.author}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <Calendar className="h-4 w-4" />
+                          <Calendar className="h-4 w-4 text-primary-red" />
                           <span>{post.date}</span>
                         </div>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
+                        <Clock className="h-4 w-4 text-primary-pink" />
                         <span>{post.readTime}</span>
                       </div>
                     </div>
@@ -211,10 +232,10 @@ export default function BlogList() {
                     {/* Read More */}
                     <Link
                       href={`/blog/${post.slug || post.id}`}
-                      className="inline-flex items-center space-x-2 text-orange-600 hover:text-orange-700 font-medium transition-colors"
+                      className="inline-flex items-center space-x-2 text-transparent bg-gradient-to-r from-primary-orange to-primary-red bg-clip-text hover:from-primary-red hover:to-primary-pink font-medium transition-all duration-200 group"
                     >
                       <span>Read More</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 text-primary-orange group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.article>
@@ -230,7 +251,12 @@ export default function BlogList() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">Latest Articles</h2>
+            <div className="flex items-center space-x-2 mb-8">
+              <div className="w-8 h-8 bg-gradient-to-r from-primary-blue to-primary-purple rounded-full flex items-center justify-center">
+                <BookOpen className="h-4 w-4 text-white" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900">Latest Articles</h2>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts.map((post, index) => (
                 <motion.article
@@ -238,19 +264,19 @@ export default function BlogList() {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300 group"
                 >
                   {/* Image */}
-                  <div className="relative h-48 bg-gradient-to-br from-gray-400 to-gray-500">
+                  <div className={`relative h-48 bg-gradient-to-br ${post.gradient}`}>
                     <div className="absolute inset-0 bg-black/20"></div>
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium text-gray-700 border border-white/50">
                       {post.category}
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2">
+                    <h3 className="text-lg font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-gray-700 transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
@@ -259,16 +285,16 @@ export default function BlogList() {
                     <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
                       <div className="flex items-center space-x-3">
                         <div className="flex items-center space-x-1">
-                          <User className="h-3 w-3" />
+                          <User className="h-3 w-3 text-primary-orange" />
                           <span>{post.author}</span>
                         </div>
                         <div className="flex items-center space-x-1">
-                          <Calendar className="h-3 w-3" />
+                          <Calendar className="h-3 w-3 text-primary-blue" />
                           <span>{post.date}</span>
                         </div>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <Clock className="h-3 w-3" />
+                        <Clock className="h-3 w-3 text-primary-purple" />
                         <span>{post.readTime}</span>
                       </div>
                     </div>
@@ -276,10 +302,10 @@ export default function BlogList() {
                     {/* Read More */}
                     <Link
                       href={`/blog/${post.slug || post.id}`}
-                      className="inline-flex items-center space-x-2 text-orange-600 hover:text-orange-700 font-medium text-sm transition-colors"
+                      className="inline-flex items-center space-x-2 text-transparent bg-gradient-to-r from-primary-orange to-primary-red bg-clip-text hover:from-primary-red hover:to-primary-pink font-medium text-sm transition-all duration-200 group"
                     >
                       <span>Read More</span>
-                      <ArrowRight className="h-4 w-4" />
+                      <ArrowRight className="h-4 w-4 text-primary-orange group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                 </motion.article>
@@ -296,8 +322,8 @@ export default function BlogList() {
             transition={{ duration: 0.6 }}
             className="text-center py-16"
           >
-            <div className="text-gray-400 mb-4">
-              <Search className="h-16 w-16 mx-auto" />
+            <div className="w-16 h-16 bg-gradient-to-r from-primary-orange to-primary-red rounded-full flex items-center justify-center mx-auto mb-4">
+              <Search className="h-8 w-8 text-white" />
             </div>
             <h3 className="text-xl font-medium text-gray-900 mb-2">No articles found</h3>
             <p className="text-gray-600 mb-6">Try adjusting your search or filter criteria</p>
@@ -306,7 +332,7 @@ export default function BlogList() {
                 setSearchTerm("")
                 setSelectedCategory("All")
               }}
-              className="bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition-colors"
+              className="bg-gradient-to-r from-primary-orange to-primary-red text-white px-6 py-3 rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200"
             >
               Clear Filters
             </button>
@@ -318,23 +344,32 @@ export default function BlogList() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16 bg-gradient-to-r from-orange-500 to-orange-400 rounded-2xl p-8 lg:p-12 text-center text-white"
+          className="mt-16 bg-gradient-to-r from-primary-orange via-primary-red to-primary-pink rounded-2xl p-8 lg:p-12 text-center text-white relative overflow-hidden"
         >
-          <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-            Never Miss an Adventure Story
-          </h3>
-          <p className="text-orange-100 mb-6 max-w-2xl mx-auto">
-            Subscribe to our newsletter and get the latest travel tips, trip reports, and exclusive offers delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
-            />
-            <button className="bg-white text-orange-600 font-medium px-6 py-3 rounded-xl hover:bg-gray-50 transition-colors">
-              Subscribe
-            </button>
+          {/* Background decorative elements */}
+          <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+          
+          <div className="relative z-10">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <BookOpen className="h-8 w-8 text-white" />
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
+              Never Miss an Adventure Story
+            </h3>
+            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
+              Subscribe to our newsletter and get the latest travel tips, trip reports, and exclusive offers delivered to your inbox.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50 border border-white/20"
+              />
+              <button className="bg-white text-transparent bg-gradient-to-r from-primary-orange to-primary-red bg-clip-text font-medium px-6 py-3 rounded-xl hover:bg-gray-50 hover:scale-105 transition-all duration-200 shadow-lg">
+                Subscribe
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

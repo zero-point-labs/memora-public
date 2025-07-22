@@ -38,7 +38,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-coral/10" aria-labelledby="footer-heading">
+    <footer className="bg-gray-800 border-t border-gray-700" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -52,24 +52,28 @@ export default function Footer() {
                 alt="Memora Logo"
                 width={140}
                 height={36}
-                className="h-9 w-auto"
+                className="h-9 w-auto brightness-0 invert"
                 priority
               />
             </Link>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
               Creating unforgettable memories for college students across Cyprus since 2021. 
               Adventure, culture, and friendships await on every trip.
             </p>
             
             {/* Social links */}
             <div>
-              <h3 className="text-sm font-semibold text-gray-900 mb-4">Follow Our Adventures</h3>
+              <h3 className="text-sm font-semibold text-white mb-4">Follow Our Adventures</h3>
               <div className="flex space-x-4">
-                {socialLinks.map((item) => (
+                {socialLinks.map((item, index) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-gray-600 hover:text-coral transition-colors duration-200 p-2 -m-2 touch-manipulation"
+                    className={`p-2 -m-2 touch-manipulation transition-colors duration-200 ${
+                      index % 3 === 0 ? 'text-gray-400 hover:text-teal-400' :
+                      index % 3 === 1 ? 'text-gray-400 hover:text-emerald-400' :
+                      'text-gray-400 hover:text-cyan-400'
+                    }`}
                   >
                     <span className="sr-only">{item.name}</span>
                     <item.icon className="h-5 w-5 sm:h-6 sm:w-6" aria-hidden="true" />
@@ -79,18 +83,20 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation links - Mobile optimized */}
-          <div className="col-span-1 lg:col-span-2">
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-4 lg:gap-8">
+          {/* Navigation links */}
+          <div className="lg:col-span-2">
+            <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
               {/* Trips */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">Trips</h3>
-                <ul role="list" className="space-y-3">
-                  {navigation.trips.map((item) => (
+                <h3 className="text-sm font-semibold text-white mb-4">Trips</h3>
+                <ul className="space-y-3">
+                  {navigation.trips.map((item, index) => (
                     <li key={item.name}>
-                      <Link 
-                        href={item.href} 
-                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
+                      <Link
+                        href={item.href}
+                        className={`text-sm transition-colors duration-200 block py-1 touch-manipulation ${
+                          index % 2 === 0 ? 'text-gray-300 hover:text-teal-400' : 'text-gray-300 hover:text-emerald-400'
+                        }`}
                       >
                         {item.name}
                       </Link>
@@ -101,13 +107,15 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">Company</h3>
-                <ul role="list" className="space-y-3">
-                  {navigation.company.map((item) => (
+                <h3 className="text-sm font-semibold text-white mb-4">Company</h3>
+                <ul className="space-y-3">
+                  {navigation.company.map((item, index) => (
                     <li key={item.name}>
-                      <Link 
-                        href={item.href} 
-                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
+                      <Link
+                        href={item.href}
+                        className={`text-sm transition-colors duration-200 block py-1 touch-manipulation ${
+                          index % 2 === 0 ? 'text-gray-300 hover:text-emerald-400' : 'text-gray-300 hover:text-teal-400'
+                        }`}
                       >
                         {item.name}
                       </Link>
@@ -118,13 +126,15 @@ export default function Footer() {
 
               {/* Support */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">Support</h3>
-                <ul role="list" className="space-y-3">
-                  {navigation.support.map((item) => (
+                <h3 className="text-sm font-semibold text-white mb-4">Support</h3>
+                <ul className="space-y-3">
+                  {navigation.support.map((item, index) => (
                     <li key={item.name}>
-                      <Link 
-                        href={item.href} 
-                        className="text-sm text-gray-600 hover:text-coral transition-colors duration-200 block py-1 touch-manipulation"
+                      <Link
+                        href={item.href}
+                        className={`text-sm transition-colors duration-200 block py-1 touch-manipulation ${
+                          index % 2 === 0 ? 'text-gray-300 hover:text-cyan-400' : 'text-gray-300 hover:text-teal-400'
+                        }`}
                       >
                         {item.name}
                       </Link>
@@ -133,71 +143,67 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Contact Info */}
+              {/* Legal & Contact */}
               <div>
-                <h3 className="text-sm font-semibold text-gray-900 mb-4">Contact</h3>
-                <ul role="list" className="space-y-3">
-                  <li>
-                    <Link 
-                      href="tel:+35799123456"
-                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-coral transition-colors py-1 touch-manipulation"
-                    >
-                      <Phone className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                      <span>+357 99 123 456</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link 
-                      href="mailto:hello@memora.cy"
-                      className="flex items-start space-x-2 text-sm text-gray-600 hover:text-coral transition-colors py-1 touch-manipulation"
-                    >
-                      <Mail className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                      <span className="break-all">hello@memora.cy</span>
-                    </Link>
-                  </li>
-                  <li className="flex items-start space-x-2 text-sm text-gray-600">
-                    <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">
-                      123 Adventure Street<br />
-                      Nicosia, Cyprus 1234
-                    </span>
-                  </li>
+                <h3 className="text-sm font-semibold text-white mb-4">Legal</h3>
+                <ul className="space-y-3">
+                  {navigation.legal.map((item, index) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className={`text-sm transition-colors duration-200 block py-1 touch-manipulation ${
+                          index % 2 === 0 ? 'text-gray-300 hover:text-emerald-400' : 'text-gray-300 hover:text-cyan-400'
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
+                
+                {/* Contact info */}
+                <div className="mt-6 space-y-3">
+                  <Link
+                    href="tel:+35799123456"
+                    className="flex items-start space-x-2 text-sm text-gray-300 hover:text-teal-400 transition-colors py-1 touch-manipulation"
+                  >
+                    <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span>+357 99 123 456</span>
+                  </Link>
+                  
+                  <Link
+                    href="mailto:hello@memora.cy"
+                    className="flex items-start space-x-2 text-sm text-gray-300 hover:text-emerald-400 transition-colors py-1 touch-manipulation"
+                  >
+                    <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                    <span>hello@memora.cy</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Bottom section */}
-        <div className="mt-8 sm:mt-12 border-t border-coral/10 pt-6 sm:pt-8">
-          <div className="flex flex-col space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
-            <p className="text-sm text-gray-600 text-center sm:text-left">
-              &copy; {new Date().getFullYear()} Memora. All rights reserved. Making memories across Cyprus.
-            </p>
-            
-            {/* Legal links */}
-            <div className="flex flex-wrap justify-center sm:justify-end gap-x-4 gap-y-2">
-              {navigation.legal.map((item, index) => (
-                <React.Fragment key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-xs sm:text-sm text-gray-600 hover:text-coral transition-colors duration-200 touch-manipulation"
-                  >
-                    {item.name}
-                  </Link>
-                  {index < navigation.legal.length - 1 && (
-                    <span className="text-gray-400 hidden sm:inline">•</span>
-                  )}
-                </React.Fragment>
-              ))}
+        <div className="mt-8 sm:mt-12 border-t border-gray-700 pt-6 sm:pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            <div className="text-center sm:text-left">
+              <p className="text-xs sm:text-sm text-gray-400">
+                © 2024 Memora Cyprus. All rights reserved.{' '}
+                <Link
+                  href="#terms"
+                  className="text-xs sm:text-sm text-gray-400 hover:text-teal-400 transition-colors duration-200 touch-manipulation"
+                >
+                  Terms & Conditions
+                </Link>
+              </p>
             </div>
-          </div>
-          
-          {/* Made with love */}
-          <div className="mt-4 flex items-center justify-center sm:justify-start space-x-1 text-gray-600">
-            <span className="text-xs sm:text-sm">Made with</span>
-            <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-coral fill-current" />
-            <span className="text-xs sm:text-sm">by the Memora Team</span>
+            
+            <div className="flex items-center space-x-1 text-xs sm:text-sm text-gray-400">
+              <span>Made with</span>
+              <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-emerald-400 fill-current" />
+              <span>in Cyprus</span>
+            </div>
           </div>
         </div>
       </div>

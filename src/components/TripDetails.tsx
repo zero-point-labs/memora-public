@@ -48,12 +48,12 @@ export default function TripDetails({ trip }: TripDetailsProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-teal/5 to-white">
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link
           href="/trips"
-          className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 font-medium transition-colors mb-8"
+          className="inline-flex items-center space-x-2 text-teal hover:text-teal/80 font-medium transition-colors mb-8"
         >
           <ArrowLeft className="h-5 w-5" />
           <span>Back to Trips</span>
@@ -70,9 +70,9 @@ export default function TripDetails({ trip }: TripDetailsProps) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-                <Calendar className="h-5 w-5 text-primary" />
-                <span className="text-primary font-medium">Trip Details</span>
+              <div className="inline-flex items-center space-x-2 bg-teal/10 rounded-full px-4 py-2 mb-4">
+                <Calendar className="h-5 w-5 text-teal" />
+                <span className="text-teal font-medium">Trip Details</span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -107,31 +107,31 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                 {trip.description}
               </p>
 
-              <div className="flex items-center justify-between bg-white rounded-2xl p-6 shadow-lg border border-primary/10 mb-8">
+              <div className="flex items-center justify-between bg-white rounded-2xl p-6 shadow-lg border border-teal/10 mb-8">
                 <div>
-                  <div className="text-3xl font-bold text-primary">€{trip.price}</div>
+                  <div className="text-3xl font-bold text-teal">€{trip.price}</div>
                   <div className="text-sm text-gray-500">per person</div>
                 </div>
                 <div className="flex space-x-4">
                   <Link
                     href="/contact"
-                    className="bg-gradient-to-r from-primary to-accent text-white font-medium py-3 px-8 rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-200"
+                    className="bg-gradient-to-r from-teal to-seafoam text-white font-medium py-3 px-8 rounded-xl hover:shadow-lg hover:shadow-teal/25 transition-all duration-200"
                   >
                     Book Now
                   </Link>
-                  <button className="bg-primary/10 text-primary font-medium py-3 px-6 rounded-xl hover:bg-primary/20 transition-all duration-200">
+                  <button className="bg-teal/10 text-teal font-medium py-3 px-6 rounded-xl hover:bg-teal/20 transition-all duration-200">
                     Ask Questions
                   </button>
                 </div>
               </div>
 
               {/* Urgency indicator */}
-              <div className="bg-primary/5 rounded-xl p-4 border border-primary/20">
+              <div className="bg-teal/5 rounded-xl p-4 border border-teal/20">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                  <span className="text-primary font-medium">Limited Spots Available</span>
+                  <div className="w-2 h-2 bg-teal rounded-full animate-pulse"></div>
+                  <span className="text-teal font-medium">Limited Spots Available</span>
                 </div>
-                <p className="text-sm text-primary/80">
+                <p className="text-sm text-teal/80">
                   Only {trip.spotsLeft} spots remaining for this amazing adventure. Book now to secure your place!
                 </p>
               </div>
@@ -144,7 +144,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="relative h-96 lg:h-[500px] bg-gradient-to-br from-primary to-accent rounded-2xl overflow-hidden">
+              <div className="relative h-96 lg:h-[500px] bg-gradient-to-br from-teal to-seafoam rounded-2xl overflow-hidden">
                 <div className="absolute inset-0 bg-black/20"></div>
                 
                 {/* Navigation buttons */}
@@ -190,8 +190,8 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                       onClick={() => setCurrentImageIndex(index)}
                       className={`flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all duration-200 ${
                         currentImageIndex === index
-                          ? 'border-primary'
-                          : 'border-gray-200 hover:border-primary/50'
+                          ? 'border-teal'
+                          : 'border-gray-200 hover:border-teal/50'
                       }`}
                     >
                       <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
@@ -218,7 +218,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                   onClick={() => setActiveTab(tab.id)}
                   className={`${
                     activeTab === tab.id
-                      ? 'border-primary text-primary'
+                      ? 'border-teal text-teal'
                       : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
                   } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-all`}
                 >
@@ -253,7 +253,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                   {trip.itinerary.map((day) => (
                     <div key={day.day} className="flex space-x-6">
                       <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center font-bold text-lg">
+                        <div className="w-12 h-12 bg-teal text-white rounded-full flex items-center justify-center font-bold text-lg">
                           {day.day}
                         </div>
                         <div className="w-px h-full bg-gray-200"></div>
@@ -263,7 +263,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                         <ul className="space-y-2">
                           {day.activities.map((activity, index) => (
                             <li key={index} className="flex items-center space-x-3">
-                              <Check className="h-5 w-5 text-green-500" />
+                              <Check className="h-5 w-5 text-seafoam" />
                               <span className="text-gray-600">{activity}</span>
                             </li>
                           ))}
@@ -288,7 +288,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
                   <ul className="space-y-2">
                     {trip.included.map((item, index) => (
                       <li key={index} className="flex items-center space-x-3">
-                        <Check className="h-5 w-5 text-green-500" />
+                        <Check className="h-5 w-5 text-seafoam" />
                         <span className="text-gray-600">{item}</span>
                       </li>
                     ))}
@@ -311,7 +311,7 @@ export default function TripDetails({ trip }: TripDetailsProps) {
         </div>
       </section>
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-primary to-accent">
+      <section className="py-16 bg-gradient-to-r from-teal to-seafoam">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -327,13 +327,13 @@ export default function TripDetails({ trip }: TripDetailsProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
-                className="bg-white text-primary font-medium py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-lg"
+                className="bg-white text-teal font-medium py-4 px-8 rounded-xl hover:bg-gray-50 transition-all duration-200 shadow-lg"
               >
                 Book This Trip - €{trip.price}
               </Link>
               <Link
                 href="/trips"
-                className="bg-primary text-white font-medium py-4 px-8 rounded-xl hover:bg-primary/80 transition-all duration-200"
+                className="bg-teal text-white font-medium py-4 px-8 rounded-xl hover:bg-teal/80 transition-all duration-200"
               >
                 View Other Trips
               </Link>

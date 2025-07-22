@@ -144,12 +144,12 @@ const ClientLogos = () => {
       {/* Decorative background elements matching Services section */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large gradient circles */}
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-green-100/40 to-emerald-100/40 rounded-full blur-3xl" />
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-to-br from-forest-100/40 to-seafoam-100/40 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-gradient-to-br from-forest-100/40 to-seafoam-100/40 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-emerald-100/30 to-lime-100/30 rounded-full blur-3xl" />
         
         {/* Beautiful greenish glows */}
-        <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-r from-green-200/40 to-emerald-200/40 rounded-full blur-2xl animate-pulse" />
+        <div className="absolute top-20 left-1/4 w-64 h-64 bg-gradient-to-r from-forest-200/40 to-seafoam-200/40 rounded-full blur-2xl animate-pulse" />
         <div className="absolute bottom-32 right-1/3 w-48 h-48 bg-gradient-to-r from-emerald-200/30 to-lime-300/30 rounded-full blur-xl" />
         
         {/* Floating glow orbs */}
@@ -157,7 +157,7 @@ const ClientLogos = () => {
           {[...Array(6)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full blur-lg bg-gradient-to-r from-green-200/20 to-emerald-200/20"
+              className="absolute rounded-full blur-lg bg-gradient-to-r from-forest-200/20 to-seafoam-200/20"
               style={{
                 width: `${Math.random() * 40 + 20}px`,
                 height: `${Math.random() * 40 + 20}px`,
@@ -192,15 +192,15 @@ const ClientLogos = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-green-100 to-emerald-100 px-4 py-2 mb-6"
+            className="inline-flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-forest-100 to-seafoam-100 px-4 py-2 mb-6"
           >
-            <Shield className="h-5 w-5 text-green-600" />
+            <Shield className="h-5 w-5 text-forest" />
             <span className="text-sm font-semibold text-green-900">Trusted Protection</span>
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Trusted by
-            <span className="block mt-2 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-forest-600 to-seafoam-600 bg-clip-text text-transparent">
               Industry Leaders
             </span>
           </h2>
@@ -219,7 +219,7 @@ const ClientLogos = () => {
               {duplicatedLogos.slice(0, 16).map((logo, index) => (
                 <div
                   key={`left-${index}`}
-                  className="flex-shrink-0 text-gray-400 hover:text-green-600 transition-all duration-300 transform hover:scale-110 cursor-pointer"
+                  className="flex-shrink-0 text-gray-400 hover:text-forest transition-all duration-300 transform hover:scale-110 cursor-pointer"
                   style={{ minWidth: `${logo.width}px` }}
                 >
                   <div className="flex items-center justify-center h-16">
@@ -253,7 +253,7 @@ const ClientLogos = () => {
               {duplicatedLogos.slice(4, 20).map((logo, index) => (
                 <div
                   key={`slow-${index}`}
-                  className="flex-shrink-0 text-gray-400 hover:text-green-600 transition-all duration-300 transform hover:scale-110 cursor-pointer"
+                  className="flex-shrink-0 text-gray-400 hover:text-forest transition-all duration-300 transform hover:scale-110 cursor-pointer"
                   style={{ minWidth: `${logo.width}px` }}
                 >
                   <div className="flex items-center justify-center h-16">
@@ -273,9 +273,9 @@ const ClientLogos = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
         >
           {[
-            { icon: TrendingUp, number: "500+", label: "Properties Protected", color: "text-green-600", bg: "bg-green-100" },
+            { icon: TrendingUp, number: "500+", label: "Properties Protected", color: "text-forest", bg: "bg-forest" },
             { icon: Star, number: "98%", label: "Success Rate", color: "text-emerald-600", bg: "bg-emerald-100" },
-            { icon: Globe, number: "50+", label: "Service Areas", color: "text-green-600", bg: "bg-green-100" },
+            { icon: Globe, number: "50+", label: "Service Areas", color: "text-forest", bg: "bg-forest" },
             { icon: Shield, number: "24/7", label: "Emergency Service", color: "text-emerald-600", bg: "bg-emerald-100" }
           ].map((stat, index) => (
             <motion.div
@@ -287,7 +287,7 @@ const ClientLogos = () => {
             >
               <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-center">
                 {/* Background gradient on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-emerald-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-forest-50 to-seafoam-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
                 
                 <div className="relative">
                   <motion.div
@@ -318,7 +318,7 @@ const ClientLogos = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full font-medium shadow-xl hover:shadow-2xl hover:shadow-green-500/25 transition-all"
+            className="inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-forest-600 to-seafoam-600 text-white rounded-full font-medium shadow-xl hover:shadow-2xl hover:shadow-green-500/25 transition-all"
           >
             <span>Get Started Today</span>
             <Star className="h-5 w-5" />

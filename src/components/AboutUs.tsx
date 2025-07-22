@@ -1,38 +1,70 @@
 "use client"
 
-import React from 'react'
+import React, { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { Award, Users, MapPin, ArrowUpRight, Star } from 'lucide-react'
+import { MapPin, Award, Users, Heart, Shield, Calendar, Camera } from 'lucide-react'
 
 const values = [
   {
-    title: "All-Inclusive Experience",
-    description: "We handle everything so you can focus on making memories.",
-    icon: "🏨"
+    icon: Heart,
+    title: "Authentic Experiences",
+    description: "We create genuine connections with Cyprus culture and hidden gems.",
+    gradient: "from-primary-pink to-primary-red",
+    bgGradient: "from-primary-pink/10 to-primary-red/10"
   },
   {
-    title: "Local Expertise",
-    description: "Our team knows Cyprus inside out, taking you to hidden gems.",
-    icon: "🗺️"
+    icon: Users,
+    title: "Student Community",
+    description: "Building lasting friendships through shared adventures.",
+    gradient: "from-primary-blue to-primary-purple",
+    bgGradient: "from-primary-blue/10 to-primary-purple/10"
   },
   {
-    title: "Student-Focused",
-    description: "Designed for college students with budget-friendly prices.",
-    icon: "🎓"
-  },
-  {
+    icon: Shield,
     title: "Safety First",
-    description: "Your safety is our priority with 24/7 support.",
-    icon: "🛡️"
+    description: "Your security and well-being are our top priorities.",
+    gradient: "from-primary-green to-primary-teal",
+    bgGradient: "from-primary-green/10 to-primary-teal/10"
+  },
+  {
+    icon: Calendar,
+    title: "Memorable Moments",
+    description: "Every trip is designed to create unforgettable memories.",
+    gradient: "from-primary-orange to-primary-pink",
+    bgGradient: "from-primary-orange/10 to-primary-pink/10"
+  }
+]
+
+const stats = [
+  {
+    number: "500+",
+    label: "Happy Travelers",
+    description: "Students who've explored with us",
+    gradient: "from-primary-blue to-primary-cyan"
+  },
+  {
+    number: "50+",
+    label: "Destinations",
+    description: "Unique locations across Cyprus",
+    gradient: "from-primary-purple to-primary-pink"
+  },
+  {
+    number: "3",
+    label: "Years Experience",
+    description: "Creating amazing adventures",
+    gradient: "from-primary-orange to-primary-red"
+  },
+  {
+    number: "98%",
+    label: "Satisfaction Rate",
+    description: "Students recommend us",
+    gradient: "from-primary-green to-primary-teal"
   }
 ]
 
 export default function AboutUs() {
-  const ref = React.useRef(null)
-  const imageRef = React.useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-  const isImageInView = useInView(imageRef, { once: true, amount: 0.3 })
-  
+  const ref = useRef<HTMLElement>(null)
+  const isInView = useInView(ref, { once: true, amount: 0.3 })
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -42,17 +74,17 @@ export default function AboutUs() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
 
   return (
-    <section ref={ref} id="about" className="relative py-20 sm:py-24 lg:py-32 bg-yellow/20 overflow-hidden">
+    <section ref={ref} id="about" className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-light-orange/10 via-white to-light-purple/10 overflow-hidden">
       {/* Animated background elements */}
       <motion.div style={{ opacity }} className="absolute inset-0">
         {/* Gradient orbs */}
         <motion.div 
           style={{ y }}
-          className="absolute -top-20 -left-20 w-96 h-96 bg-green/10 rounded-full blur-3xl"
+          className="absolute -top-20 -left-20 w-96 h-96 bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 rounded-full blur-3xl"
         />
         <motion.div 
           style={{ y: useTransform(y, value => -value * 0.5) }}
-          className="absolute -bottom-20 -right-20 w-96 h-96 bg-green/10 rounded-full blur-3xl"
+          className="absolute -bottom-20 -right-20 w-96 h-96 bg-gradient-to-r from-primary-orange/10 to-primary-pink/10 rounded-full blur-3xl"
         />
         
         {/* Floating elements */}
@@ -75,7 +107,7 @@ export default function AboutUs() {
                 ease: "linear"
               }}
             >
-              <MapPin className={`h-6 w-6 text-green/20`} />
+              <MapPin className="h-6 w-6 text-primary-cyan/20" />
             </motion.div>
           ))}
         </div>
@@ -93,21 +125,21 @@ export default function AboutUs() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.4 }}
-            className="inline-flex items-center justify-center space-x-2 rounded-full bg-green/10 px-4 py-2 mb-6"
+            className="inline-flex items-center justify-center space-x-2 rounded-full bg-gradient-to-r from-primary-blue/10 to-primary-purple/10 px-4 py-2 mb-6 border border-primary-blue/20"
           >
-            <Award className="h-5 w-5 text-green" />
-            <span className="text-sm font-semibold text-green/80">About Memora</span>
+            <Award className="h-5 w-5 text-primary-blue" />
+            <span className="text-sm font-semibold text-primary-blue">About Memora</span>
           </motion.div>
           
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Creating Memories,
-            <span className="block mt-2 text-green">
+            <span className="block mt-2 text-transparent bg-gradient-to-r from-primary-purple via-primary-pink to-primary-orange bg-clip-text">
               One Adventure at a Time
             </span>
           </h2>
           
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            We&apos;re passionate about showing college students the hidden gems of Cyprus through carefully crafted adventures.
+            We're passionate about showing college students the hidden gems of Cyprus through carefully crafted adventures.
           </p>
         </motion.div>
 
@@ -118,101 +150,174 @@ export default function AboutUs() {
             initial={{ opacity: 0, x: -30 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
           >
-            <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-              Our Story of 
-              <span className="text-green"> Adventure</span>
-            </h3>
-            
-            <div className="space-y-4 text-gray-600 mb-8">
-              <p className="text-lg leading-relaxed">
-                Memora was born from a simple belief: that college years should be filled with incredible experiences. 
-                Founded by Cyprus locals who love showing students the island&apos;s hidden treasures.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Our deep knowledge of Cyprus allows us to craft the perfect balance of adventure, relaxation, 
-                culture, and nightlife.
+            <div>
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                Your Gateway to 
+                <span className="text-transparent bg-gradient-to-r from-primary-cyan to-primary-blue bg-clip-text"> Cyprus</span>
+              </h3>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Founded by students, for students. We create authentic Cyprus adventures that fit your lifestyle and budget, building a community of explorers and lifelong friendships.
               </p>
             </div>
 
             {/* Values grid */}
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {values.map((value, index) => (
                 <motion.div
                   key={value.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className="group p-4 bg-white rounded-2xl border border-gray-100 hover:border-green/20 hover:shadow-lg transition-all"
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  className={`p-4 bg-gradient-to-br ${value.bgGradient} rounded-2xl border border-white/60 hover:shadow-lg transition-all duration-300 group`}
                 >
-                  <div className="text-2xl mb-2">{value.icon}</div>
-                  <h4 className="font-semibold text-gray-900 mb-1 text-sm">{value.title}</h4>
-                  <p className="text-xs text-gray-600">{value.description}</p>
+                  <div className={`w-10 h-10 rounded-full bg-gradient-to-r ${value.gradient} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
+                    <value.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-1">{value.title}</h4>
+                  <p className="text-sm text-gray-600">{value.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            {/* CTA button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group inline-flex items-center space-x-2 px-8 py-4 bg-green text-white rounded-full font-medium shadow-xl hover:shadow-2xl transition-all"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <span>Meet Our Team</span>
-              <ArrowUpRight className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </motion.button>
+              <button className="group inline-flex items-center space-x-2 px-8 py-4 bg-gradient-to-r from-primary-blue to-primary-purple text-white rounded-full font-medium shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300">
+                <span>Learn More About Us</span>
+                <Camera className="h-5 w-5 group-hover:rotate-12 transition-transform duration-300" />
+              </button>
+            </motion.div>
           </motion.div>
 
-          {/* Right image */}
+          {/* Right content - Stats and visual */}
           <motion.div
-            ref={imageRef}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isImageInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.8 }}
-            className="relative"
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-8"
           >
-            {/* Main image placeholder */}
-            <div className="relative bg-green rounded-3xl p-8 mb-6 overflow-hidden">
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="relative z-10 text-center text-white">
-                <div className="w-32 h-32 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="h-16 w-16" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Team Photo Placeholder</h3>
-                <p className="text-sm opacity-90">Add your team photos here</p>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute top-4 right-4 w-12 h-12 bg-white/10 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full"></div>
-              <div className="absolute top-1/2 left-4 w-8 h-8 bg-white/10 rounded-full"></div>
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+                >
+                  <div className={`text-3xl lg:text-4xl font-bold mb-2 text-transparent bg-gradient-to-r ${stat.gradient} bg-clip-text`}>
+                    {stat.number}
+                  </div>
+                  <div className="font-semibold text-gray-900 mb-1">{stat.label}</div>
+                  <div className="text-sm text-gray-600">{stat.description}</div>
+                </motion.div>
+              ))}
             </div>
 
-            {/* Floating stats cards */}
-            <div className="absolute -top-8 -left-8 bg-white rounded-2xl p-4 shadow-lg border border-green/10">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-green/10 rounded-full flex items-center justify-center">
-                  <Star className="h-6 w-6 text-green" />
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">4.9</div>
-                  <div className="text-sm text-gray-600">Rating</div>
+            {/* Feature highlight */}
+            <div className="relative">
+              {/* Heart card positioned on top */}
+              <div className="absolute -top-6 -left-6 z-20">
+                <div className="bg-white rounded-2xl p-4 shadow-2xl border border-gray-200 transform rotate-12 hover:rotate-6 transition-transform duration-300">
+                  <Heart className="h-8 w-8 text-primary-orange" />
                 </div>
               </div>
-            </div>
-
-            <div className="absolute -bottom-8 -right-8 bg-white rounded-2xl p-4 shadow-lg border border-coral/10">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-coral/10 rounded-full flex items-center justify-center">
-                  <Users className="h-6 w-6 text-coral" />
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 1 }}
+                className="relative bg-gradient-to-br from-primary-orange to-primary-red rounded-3xl p-8 mb-6 overflow-hidden text-white"
+              >
+                <div className="relative z-10">
+                  <h4 className="text-xl font-bold mb-3">Why Students Choose Us</h4>
+                  <ul className="space-y-2 text-white/90">
+                    <li>• All-inclusive pricing with no hidden costs</li>
+                    <li>• Small groups for personalized experiences</li>
+                    <li>• Student-friendly schedule and budget</li>
+                    <li>• Local insights and authentic experiences</li>
+                  </ul>
                 </div>
-                <div>
-                  <div className="text-2xl font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Happy Students</div>
-                </div>
-              </div>
+                
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-white/10 rounded-full"></div>
+                <div className="absolute top-4 right-4 w-16 h-16 bg-white/5 rounded-full"></div>
+              </motion.div>
             </div>
           </motion.div>
         </div>
+
+        {/* Sponsors Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 1.2 }}
+          className="mt-20 lg:mt-32"
+        >
+          <div className="text-center mb-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Trusted by Leading
+              <span className="text-transparent bg-gradient-to-r from-primary-purple to-primary-pink bg-clip-text"> Partners</span>
+            </h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We're proud to work with amazing partners who share our vision of creating unforgettable experiences for students.
+            </p>
+          </div>
+
+          {/* Sponsors Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {[
+              { name: "Cyprus Airways", logo: "CA", gradient: "from-primary-blue to-primary-cyan" },
+              { name: "Atlantica Hotels", logo: "AH", gradient: "from-primary-purple to-primary-pink" },
+              { name: "Paphos Tourism", logo: "PT", gradient: "from-primary-orange to-primary-red" },
+              { name: "Zenon N. Zenon", logo: "ZNZ", gradient: "from-primary-green to-primary-teal" },
+              { name: "Ayia Napa Resort", logo: "ANR", gradient: "from-primary-red to-primary-pink" },
+              { name: "Cyprus College", logo: "CC", gradient: "from-primary-cyan to-primary-blue" }
+            ].map((sponsor, index) => (
+              <motion.div
+                key={sponsor.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
+                className="group flex flex-col items-center space-y-3 p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl hover:scale-105 transition-all duration-300"
+              >
+                <div className={`w-16 h-16 bg-gradient-to-r ${sponsor.gradient} rounded-2xl flex items-center justify-center group-hover:rotate-6 transition-transform duration-300`}>
+                  <span className="text-white font-bold text-lg">{sponsor.logo}</span>
+                </div>
+                <span className="text-sm font-medium text-gray-700 text-center">{sponsor.name}</span>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Partnership CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 1.8 }}
+            className="text-center mt-12"
+          >
+            <div className="inline-flex items-center space-x-4 bg-gradient-to-r from-primary-blue/5 to-primary-purple/5 rounded-2xl p-6 border border-primary-blue/10">
+              <div className="flex -space-x-2">
+                {['primary-blue', 'primary-purple', 'primary-pink', 'primary-orange'].map((color, i) => (
+                  <div key={i} className={`w-10 h-10 bg-gradient-to-r from-${color} to-primary-teal rounded-full border-2 border-white flex items-center justify-center`}>
+                    <Heart className="h-5 w-5 text-white" />
+                  </div>
+                ))}
+              </div>
+              <div className="text-left">
+                <h4 className="font-semibold text-gray-900">Interested in partnering with us?</h4>
+                <p className="text-sm text-gray-600">Join our network of trusted partners</p>
+              </div>
+              <button className="bg-gradient-to-r from-primary-blue to-primary-purple text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-200">
+                Partner With Us
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

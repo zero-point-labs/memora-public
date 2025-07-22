@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Light gray-blue */
-    --foreground: 222.2 84% 4.9%;
-    --card: 210 40% 96.1%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 210 40% 96.1%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 349.6 98.6% 70%; /* Coral */
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 43.1 100% 70.2%; /* Yellow */
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 165.4 98.4% 42.5%; /* Green */
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 349.6 98.6% 70%; /* Coral */
+    --background: 180 15% 98%; /* Light blue-gray, almost white - matching gprealty */
+    --foreground: 180 10% 20%;
+    --card: 180 15% 96%; /* Light blue-gray card background - matching gprealty */
+    --card-foreground: 180 10% 20%;
+    --popover: 180 15% 96%;
+    --popover-foreground: 180 10% 20%;
+    --primary: 175 70% 38%; /* Teal/turquoise - matching gprealty primary */
+    --primary-foreground: 180 100% 98%;
+    --secondary: 170 40% 92%; /* Light teal - matching gprealty secondary */
+    --secondary-foreground: 175 40% 25%;
+    --muted: 170 30% 94%;
+    --muted-foreground: 170 25% 45%;
+    --accent: 150 60% 45%; /* Green - matching gprealty accent */
+    --accent-foreground: 150 100% 98%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 100% 98%;
+    --border: 180 15% 88%;
+    --input: 180 15% 88%;
+    --ring: 175 70% 45%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 210 40% 98%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 210 40% 96.1%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 210 40% 96.1%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 349.6 98.6% 70%;
-    --primary-foreground: 355.7 100% 97.3%;
-    --secondary: 43.1 100% 70.2%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 165.4 98.4% 42.5%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 349.6 98.6% 70%;
+    --background: 175 15% 12%;
+    --foreground: 180 10% 90%;
+    --card: 175 15% 15%;
+    --card-foreground: 180 10% 90%;
+    --popover: 175 15% 15%;
+    --popover-foreground: 180 10% 90%;
+    --primary: 175 65% 55%;
+    --primary-foreground: 175 100% 10%;
+    --secondary: 170 25% 22%;
+    --secondary-foreground: 170 30% 85%;
+    --muted: 170 20% 20%;
+    --muted-foreground: 170 20% 60%;
+    --accent: 150 55% 65%;
+    --accent-foreground: 150 100% 10%;
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 100% 98%;
+    --border: 170 15% 25%;
+    --input: 170 15% 25%;
+    --ring: 175 65% 60%;
   }
 }
 
@@ -55,5 +55,80 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Additional utility classes matching gprealty's style */
+@layer components {
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.3s ease-out forwards;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+  }
+  
+  .animate-pulse-gentle {
+    animation: pulseGentle 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGentle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }

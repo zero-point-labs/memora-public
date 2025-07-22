@@ -91,9 +91,9 @@ export default function PastTrips() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 lg:mb-16"
         >
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-            <Heart className="h-5 w-5 text-primary" />
-            <span className="text-primary font-medium">Past Adventures</span>
+          <div className="inline-flex items-center space-x-2 bg-teal/10 rounded-full px-4 py-2 mb-4">
+            <Heart className="h-5 w-5 text-teal" />
+            <span className="text-teal font-medium">Past Adventures</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Amazing Memories Created
@@ -111,19 +111,19 @@ export default function PastTrips() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
         >
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">150+</div>
+            <div className="text-3xl lg:text-4xl font-bold text-teal mb-2">150+</div>
             <div className="text-gray-600">Happy Travelers</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">25+</div>
+            <div className="text-3xl lg:text-4xl font-bold text-teal mb-2">25+</div>
             <div className="text-gray-600">Trips Completed</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">4.8</div>
+            <div className="text-3xl lg:text-4xl font-bold text-teal mb-2">4.8</div>
             <div className="text-gray-600">Average Rating</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">100%</div>
+            <div className="text-3xl lg:text-4xl font-bold text-teal mb-2">100%</div>
             <div className="text-gray-600">Satisfaction Rate</div>
           </div>
         </motion.div>
@@ -136,10 +136,10 @@ export default function PastTrips() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-primary/10 hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg border border-teal/10 hover:shadow-xl transition-all duration-300"
             >
               {/* Trip Image */}
-              <div className="relative h-48 bg-gradient-to-br from-primary to-accent">
+              <div className="relative h-48 bg-gradient-to-br from-teal to-seafoam">
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
                   <div className="flex items-center space-x-1">
@@ -176,9 +176,9 @@ export default function PastTrips() {
 
                 {/* Testimonial */}
                 <div className="mb-4">
-                  <Quote className="h-5 w-5 text-primary mb-2" />
+                  <Quote className="h-5 w-5 text-teal mb-2" />
                   <p className="text-gray-700 text-sm italic mb-2">&ldquo;{trip.testimonial}&rdquo;</p>
-                  <p className="text-primary font-medium text-sm">- {trip.author}</p>
+                  <p className="text-teal font-medium text-sm">- {trip.author}</p>
                 </div>
 
                 {/* Highlights */}
@@ -187,7 +187,7 @@ export default function PastTrips() {
                   <div className="grid grid-cols-2 gap-1">
                     {trip.highlights.map((highlight, hIndex) => (
                       <div key={hIndex} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-teal rounded-full flex-shrink-0"></div>
                         <span className="text-xs text-gray-600">{highlight}</span>
                       </div>
                     ))}
@@ -211,7 +211,7 @@ export default function PastTrips() {
           </p>
           <Link
             href="/trips"
-            className="inline-block bg-gradient-to-r from-primary to-accent text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all duration-200"
+            className="inline-block bg-gradient-to-r from-teal to-seafoam text-white font-medium py-4 px-8 rounded-xl hover:shadow-lg hover:shadow-teal/25 transition-all duration-200"
           >
             Explore Upcoming Trips
           </Link>

@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import NextTrip from "@/components/NextTrip";
+import Reviews from "@/components/Reviews";
 import AboutUs from "@/components/AboutUs";
 import Blog from "@/components/Blog";
 import Gallery from "@/components/Gallery";
@@ -10,9 +11,10 @@ export default function Home() {
     <>
       <Hero />
       <NextTrip />
+      <Reviews />
+      <Gallery />
       <AboutUs />
       <Blog />
-      <Gallery />
       <Contact />
       {/* Add more sections here as we build them */}
     </>
