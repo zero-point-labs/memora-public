@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart } from 'lucide-react'
+import { Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Heart } from 'lucide-react'
 
 const navigation = {
   trips: [

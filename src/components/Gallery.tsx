@@ -56,12 +56,13 @@ const categories = [
   { name: "Adventure", gradient: "from-primary-red to-primary-green", icon: Filter }
 ]
 
-const stats = [
-  { number: "500+", label: "Photos Shared", gradient: "from-primary-green to-primary-teal", icon: Camera },
-  { number: "10K+", label: "Total Likes", gradient: "from-primary-cyan to-primary-green", icon: Heart },
-  { number: "50+", label: "Destinations", gradient: "from-primary-blue to-primary-green", icon: MapPin },
-  { number: "100%", label: "Memories Made", gradient: "from-primary-purple to-primary-green", icon: Eye }
-]
+// Stats data - keeping for future use
+// const stats = [
+//   { number: "500+", label: "Photos Shared", gradient: "from-primary-green to-primary-teal", icon: Camera },
+//   { number: "10K+", label: "Total Likes", gradient: "from-primary-cyan to-primary-green", icon: Heart },
+//   { number: "50+", label: "Destinations", gradient: "from-primary-blue to-primary-green", icon: MapPin },
+//   { number: "100%", label: "Memories Made", gradient: "from-primary-purple to-primary-green", icon: Eye }
+// ]
 
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState("All")

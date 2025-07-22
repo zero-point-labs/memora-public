@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, MapPin, Phone, Mail } from 'lucide-react'
+import { Send, Phone, Mail } from 'lucide-react'
 
 const contactMethods = [
   {

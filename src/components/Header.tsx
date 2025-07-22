@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, Phone, MapPin } from 'lucide-react'
+import { Menu, X, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navigation = [

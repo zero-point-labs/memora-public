@@ -294,7 +294,7 @@ export default function Blog() {
             { number: "25K+", label: "Monthly Readers", gradient: "from-primary-blue to-primary-purple", icon: User },
             { number: "100+", label: "Hidden Spots", gradient: "from-primary-green to-primary-teal", icon: Eye },
             { number: "4.9★", label: "Reader Rating", gradient: "from-primary-pink to-primary-purple", icon: TrendingUp }
-          ].map((stat, index) => (
+          ].map((stat) => (
             <div
               key={stat.label}
               className="text-center p-6 bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"

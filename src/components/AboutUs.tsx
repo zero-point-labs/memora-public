@@ -139,7 +139,7 @@ export default function AboutUs() {
           </h2>
           
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-            We're passionate about showing college students the hidden gems of Cyprus through carefully crafted adventures.
+            We&apos;re passionate about showing college students the hidden gems of Cyprus through carefully crafted adventures.
           </p>
         </motion.div>
 
@@ -264,7 +264,7 @@ export default function AboutUs() {
               <span className="text-transparent bg-gradient-to-r from-primary-purple to-primary-pink bg-clip-text"> Partners</span>
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We're proud to work with amazing partners who share our vision of creating unforgettable experiences for students.
+              We&apos;re proud to work with amazing partners who share our vision of creating unforgettable experiences for students.
             </p>
           </div>
 

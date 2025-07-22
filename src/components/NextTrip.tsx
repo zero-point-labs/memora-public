@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { MapPin, Calendar, Users, Star, Clock, Utensils, Camera, Music } from 'lucide-react'
+import { MapPin, Calendar, Users, Utensils, Camera, Music } from 'lucide-react'
 import Link from 'next/link'
 
 const activities = [

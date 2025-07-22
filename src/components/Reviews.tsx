@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Star, Quote, ThumbsUp, MapPin, Calendar, User, ChevronLeft, ChevronRight, Heart, Camera, TrendingUp } from 'lucide-react'
 
 const reviews = [
