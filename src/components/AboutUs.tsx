@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { MapPin, Award, Users, Heart, Shield, Calendar, Camera } from 'lucide-react'
+import { Award, Users, Heart, Shield, Calendar, Camera } from 'lucide-react'
 
 const values = [
   {
